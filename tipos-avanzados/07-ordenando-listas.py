@@ -25,3 +25,6 @@ def ordena(elemento):
 
 usuarios2.sort( key=ordena, reverse=True )
 print(usuarios2)
+
+usuarios2.sort( key=lambda el: el[1])
+print(usuarios2)
