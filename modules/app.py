@@ -1,4 +1,4 @@
-from user import guardar, pagar_impuesto
+from users.actions import guardar, pagar_impuesto
 
 pagar_impuesto()
 guardar()
