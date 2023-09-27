@@ -12,3 +12,7 @@ def index(request):
     #return JsonResponse(list(productos), safe=False)
     return render(request,'index.html',
     context={'productos':productos})
+
+
+def detalle(request, producto_id):
+    return HttpResponse(producto_id)
