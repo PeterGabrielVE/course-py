@@ -5,7 +5,7 @@ class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'nombre')
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre','stock', 'creado_en')
+    list_display = ('id','nombre','stock','categoria','creado_en')
 
 # Register your models here.
 admin.site.register(Categoria, CategoriaAdmin)
