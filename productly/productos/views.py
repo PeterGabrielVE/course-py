@@ -1,7 +1,7 @@
-from django.http import Http404, HttpResponse, JsonResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Producto
-from .forms import Form
+from .forms import ProductForm
 
 # Create your views here.
 def index(request):
@@ -27,7 +27,13 @@ def detalle(request, producto_id):
         #raise Http404()
 
 def formulario(request):
-    form = Form()
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/productos')
+    else:
+        form = ProductForm()
 
     return render(
         request,
